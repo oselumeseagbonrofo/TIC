@@ -1,0 +1,54 @@
+body {margin: 0px;
+    padding: 0px;
+    text-align: center;
+    background-color: #DDD0C8;
+    font-family:"Montserrat","Open sans";
+    color: #323232;
+}
+.logo{border-radius: 50%;
+    height:50px;
+    width: 50px;
+    padding: 2px;
+    margin-right: 600px;
+}
+.header-section{
+   
+    padding:2px;
+    box-sizing: border-box;
+}
+.top-section{
+    
+}
+.poundo-image{
+    float: right;
+    height:300px;
+    width: 300px;
+    border-radius: 10%;
+}
+.description-image{ height:200px;
+    width: 200px; padding: 10px;
+border-radius: 10%;}
+
+li{display: inline-block;}
+.middle-section{margin-top: 2rem}
+.intro-section{text-align: left;
+width: 40%;
+margin: 150px auto;}
+.main-text{text-align: justify; position:relative;right: 4rem;
+font-size: 20px;}
+
+li{margin: 20px;}
+.footer-section{ 
+padding: 40px 20px}
+.social-media{height:30px;
+width: 30px;
+border-radius: 15%;}
+a{text-decoration: none;font-size: 20px;}
+.header-text{margin:auto 60px;color:#323232}
+button{border-radius: 20%;color:bisque;
+background-color: #323232;height:40px;
+width:100px;
+font-size: 16px;}
+button:hover {background-color: black;cursor: pointer;}
+.header-text:hover{color: linear-gradient(rgba(32, 158, 220, 0.482),rgba(22,33,4,0.4));}
+hr{width: 10%;border: dotted 6px;}

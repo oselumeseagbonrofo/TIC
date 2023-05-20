@@ -1,0 +1,1 @@
+A static restaurant website. The site sells poundo yam. It was made with HTML and CSS only
