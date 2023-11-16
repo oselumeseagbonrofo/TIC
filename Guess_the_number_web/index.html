@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./index.css" rel="stylesheet">
+    <title>Guess the number game</title>
+</head>
+<body>
+    <div class="gameBoard">
+        <h1>Welcome to Oselumese's guess the number game</h1>
+        <h3>Please input a number between 1 and 10</h3>
+        <p><b>You have only 3 attempts to guess the number</b></p>
+        <input id="guess" label="Number input field" min="1" max="10" placeholder="Input number" required type="number" value="">
+        <div class="buttons">
+            <button id="guessButton" label="Guess button" onclick="guessChecker()" type="button">Try your luck</button>
+            <button label="Restart button"  onclick="restartGame()" type="button">Restart game</button>
+            <p id= "gameStatusMessage"></p>
+        </div>
+        <script src="./index.js"></script>
+    </div>
+</body>
+</html>
