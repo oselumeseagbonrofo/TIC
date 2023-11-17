@@ -1,4 +1,3 @@
-
 function getRandomInt(min, max) 
 {
     min = Math.ceil(min);
@@ -11,6 +10,7 @@ let maxNumber = 10;
 let randomNumber = getRandomInt(minNumber, maxNumber);
 let guessCount = 0;
 let maxGuess = 3;
+let guessButton = document.getElementById("guessButton");
 function guessChecker() 
 {
     let userGuess = document.getElementById("guess").value;
@@ -32,9 +32,9 @@ function guessChecker()
         }
         else if (userGuess > randomNumber)
         {
-        guessCount ++;
-        document.getElementById("gameStatusMessage").innerHTML = `Try again. Your answer is too high. You have ${maxGuess-guessCount} attempts left`;
-        document.getElementById("guess").value = "";
+            guessCount ++;
+            document.getElementById("gameStatusMessage").innerHTML = `Try again. Your answer is too high. You have ${maxGuess-guessCount} attempts left`;
+            document.getElementById("guess").value = "";
         }
         else
         {
@@ -47,7 +47,8 @@ function guessChecker()
         if (guessCount == maxGuess)
         {
             document.getElementById("gameStatusMessage").innerHTML = `Sorry. Your attempts have been exhausted. The final answer is ${randomNumber}`;
-            document.getElementById("guessButton").setAttribute("disabled","Try your luck");
+            guessButton.setAttribute("disabled","Try your luck");
+            guessButton.style.backgroundColor="grey";
         }
     }
 }
@@ -57,6 +58,7 @@ function restartGame()
     guessCount = 0;
     document.getElementById("gameStatusMessage").innerHTML = "";
     document.getElementById("guess").value = "";
-    document.getElementById("guessButton").removeAttribute("disabled","Try your luck");
+    guessButton.removeAttribute("disabled","Try your luck");
     randomNumber = getRandomInt(minNumber, maxNumber);
+    guessButton.style.backgroundColor="rgb(94, 0, 0)";
 }
