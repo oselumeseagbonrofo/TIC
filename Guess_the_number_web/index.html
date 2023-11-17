@@ -1,64 +1,23 @@
-function getRandomInt(min, max) 
-{
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-}
-  
-let minNumber = 1;
-let maxNumber = 10;
-let randomNumber = getRandomInt(minNumber, maxNumber);
-let guessCount = 0;
-let maxGuess = 3;
-let guessButton = document.getElementById("guessButton");
-function guessChecker() 
-{
-    let userGuess = document.getElementById("guess").value;
-    if (userGuess == ""){
-        document.getElementById("gameStatusMessage").innerHTML = "Please input a number"
-    }
-    else if  (userGuess > 10 || userGuess < 1)
-    {
-        document.getElementById("gameStatusMessage").innerHTML = "Please input a number between 1 and 10"
-    }
-    else 
-    {
-        if (userGuess == randomNumber)
-        {
-            document.getElementById("gameStatusMessage").innerHTML = "Well done!! You guessed the number";
-            document.getElementById("guess").value = "";
-            guessCount = 0;
-            randomNumber = getRandomInt(minNumber, maxNumber);
-        }
-        else if (userGuess > randomNumber)
-        {
-        guessCount ++;
-        document.getElementById("gameStatusMessage").innerHTML = `Try again. Your answer is too high. You have ${maxGuess-guessCount} attempts left`;
-        document.getElementById("guess").value = "";
-        }
-        else
-        {
-            guessCount ++;
-            document.getElementById("gameStatusMessage").innerHTML = `Try again. Your answer is too low. You have ${maxGuess-guessCount} attempts left`;
-            document.getElementById("guess").value = "";
-
-        }
-        
-        if (guessCount == maxGuess)
-        {
-            document.getElementById("gameStatusMessage").innerHTML = `Sorry. Your attempts have been exhausted. The final answer is ${randomNumber}`;
-            guessButton.setAttribute("disabled","Try your luck");
-            guessButton.style.backgroundColor="grey";
-        }
-    }
-}
-
-function restartGame() 
-{
-    guessCount = 0;
-    document.getElementById("gameStatusMessage").innerHTML = "";
-    document.getElementById("guess").value = "";
-    guessButton.removeAttribute("disabled","Try your luck");
-    randomNumber = getRandomInt(minNumber, maxNumber);
-    guessButton.style.backgroundColor="rgb(94, 0, 0)";
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./index.css" rel="stylesheet">
+    <title>Guess the number game</title>
+</head>
+<body>
+    <div class="gameBoard">
+        <h1>Welcome to Oselumese's guess the number game</h1>
+        <h3>Please input a number between 1 and 10</h3>
+        <p><b>You have only 3 attempts to guess the number</b></p>
+        <input id="guess" label="Number input field" min="1" max="10" placeholder="Input number" required type="number" value="">
+        <div class="buttons">
+            <button id="guessButton" label="Guess button" onclick="guessChecker()" type="button">Try your luck</button>
+            <button label="Restart button"  onclick="restartGame()" type="button">Restart game</button>
+            <p id= "gameStatusMessage"></p>
+        </div>
+        <script src="./index.js"></script>
+    </div>
+</body>
+</html>
